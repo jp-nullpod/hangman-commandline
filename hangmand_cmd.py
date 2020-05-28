@@ -1,4 +1,5 @@
 import random
+import tibolom
 
 def createPlayBoard():
     """ reads words from the dictionary and builds a list out of it """
