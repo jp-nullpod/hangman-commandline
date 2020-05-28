@@ -1,6 +1,7 @@
 import random
 
 def createPlayBoard():
+    """ reads words from the dictionary and builds a list out of it """
     words = []
     file = open('./hangman_words_db','r')
     for line in file:
@@ -9,6 +10,7 @@ def createPlayBoard():
     return words
 
 def pickRandomWord(words):
+    """picks a random word from the word list"""
     total = len(words)-1
     index = random.randint(0,total)
     return words[index]
@@ -22,7 +24,9 @@ def initGuessedWord(mysteryWord):
         guessedWord += '_'
 
     return guessedWord
+
 def listToString(s):  
+    """utility function to convert a list to a string"""
     str1 = ''  
     for ele in s:  
         str1 += ele   
@@ -30,6 +34,7 @@ def listToString(s):
     return str1  
 
 def hangmanLogic(mysteryWord, letterEntered, guessedWord):    
+    """the actual hangman game logic"""
     index = 0
     while index < len(mysteryWord):
         index = mysteryWord.find(letterEntered, index)
@@ -44,6 +49,7 @@ def hangmanLogic(mysteryWord, letterEntered, guessedWord):
     return guessedWord
 
 def niceDisplay(guessedWord, numberOfTries):
+    """display function that updates everytime a letter is entered"""
     for char in guessedWord:
         if char == '_':
             print(' _ ',end='')
@@ -53,6 +59,7 @@ def niceDisplay(guessedWord, numberOfTries):
     print('\n\nNumber of tries left: ', numberOfTries ,'\n')
 
 def playGame():
+    """the start function for the Hangman game"""
     # builds a list of words from the hangman word file
     words = createPlayBoard()
     # pick a random word from the list created
