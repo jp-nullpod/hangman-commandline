@@ -94,10 +94,10 @@ def playGame():
         
         niceDisplay(guessedWord, numberOfTries)
 
-        if not win:
-            print('\nThe mystery word was',mysteryWord,'!')
-        else:
-             print('\nYou won! It is',mysteryWord,'!')
+    if not win:
+        print('\nThe mystery word was',mysteryWord,'!')
+    else:
+            print('\nYou won! It is',mysteryWord,'!')
 
 def main():
     answer = 'y'
