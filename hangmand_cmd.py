@@ -51,7 +51,7 @@ def niceDisplay(guessedWord, numberOfTries):
             print(' ' + char + ' ',end='')
         
     print('\n\nNumber of tries left: ', numberOfTries ,'\n')
-    
+
 def playGame():
     # builds a list of words from the hangman word file
     words = createPlayBoard()
@@ -85,7 +85,12 @@ def playGame():
         if previousGuessedWord == guessedWord:
             numberOfTries -= 1
         
-        # niceDisplay(guessedWord, numberOfTries)
+        niceDisplay(guessedWord, numberOfTries)
+
+        if not win:
+            print('\nThe mystery word was',mysteryWord,'!')
+        else:
+             print('\nYou won! It is',mysteryWord,'!')
 
 def main():
     answer = 'y'
