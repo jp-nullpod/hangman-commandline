@@ -43,6 +43,15 @@ def hangmanLogic(mysteryWord, letterEntered, guessedWord):
 
     return guessedWord
 
+def niceDisplay(guessedWord, numberOfTries):
+    for char in guessedWord:
+        if char == '_':
+            print(' _ ',end='')
+        else:
+            print(' ' + char + ' ',end='')
+        
+    print('\n\nNumber of tries left: ', numberOfTries ,'\n')
+    
 def playGame():
     # builds a list of words from the hangman word file
     words = createPlayBoard()
